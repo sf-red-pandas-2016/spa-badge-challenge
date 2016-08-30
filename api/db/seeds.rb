@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'ffaker'
+
+10.times do
+  Boot.create(
+    name: FFaker::Name.name
+  )
+end
+
+50.times do
+  Badge.create(
+    description: FFaker::HipsterIpsum.phrase
+  )
+end
