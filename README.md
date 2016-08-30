@@ -27,10 +27,9 @@ PUT /badges/:id --> vote for a badge. Expects one param called "vote_type" whose
 ```
 
 Rules
-- Has to be a JavaScript app that utilizes your miniQuery library
-- You can add features to your miniQuery
+- Has to be a JavaScript app
 - Only XHR (AJAX) requests to the server are allowed except for the initial app load
-- jQuery is banned; any features you want from jQuery must be implemented in your miniQuery
+- jQuery is fine
 - Frameworks and libraries such as Angular and React are banned
 - There's an ban exception for templating libraries such as [Handlebars] (http://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes/)
 - All page navigation must be done through JS routing (see Features section)
