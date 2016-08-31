@@ -14,11 +14,27 @@ var getAllTeachers = function() {
   });
 
   request.done(function(res) {
-    res.forEach(function(teacher) {
-      $('#teachers').append(`<li><a class='teachername' href="http://sample-badges-api.herokuapp.com/teachers/${teacher.id}">${teacher.name}</a></li>`)
-    });
+    	var script = $('#teacher').html();
+    	var template = Handlebars.compile(script);
+    	var context = { "teachers" : res };
+    	var compiled = template(context);
+      $('#teachers-list').append(compiled)
   });
 };
+
+// function getPosts() {
+// 	$.ajax({
+// 		url: 'http://localhost:9393/',
+// 		dataType: 'json',
+// 		crossDomain: false
+// 	}).done(function(res){
+//     var script = $('#post').html();
+//     var template = Handlebars.compile(script);
+//     var context = { "posts" : res };
+//     var compiled = template(context);
+//     $('.posts').append(compiled);
+//   });
+// }
 
 var getTeacherBadges = function() {
   $('.container').on('click', 'a', 'href', function(e) {
