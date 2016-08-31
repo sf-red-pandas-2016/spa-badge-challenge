@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script src="js/app.js"></script>
+
   <title>SPABadge</title>
 </head>
 <body>
@@ -9,11 +9,55 @@
     <div class="logo">
       <h1> SPA Badge </h1>
     </div>
-    <h1> SF Teachers </h1>
+    <div id=teacher-page>
+      <h2> SF Teachers </h2>
       <ul>
-        <li><a href="#">Walker</a></li>
-        <li><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
       </ul>
+    </div>
+    <div id=slogan-page>
+      <h2></h2>
+      <div id=slogan-container>
+      </div>
+    </div>
   </div>
+
+
+
+
+  <script id="badge-template" type="text/x-handlebars-template">
+    <div id="{{ id }}" class="slogan">
+      <div class="body">{{ id }}) {{ phrase }}</div>
+      <div class="vote-on">
+        <form action="/badges/{{ id }}" method='POST'>
+          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="slogan_id" value="{{ id }}">
+          <input type="hidden" name="vote_type" value="up">
+          <button class="up" type="submit" name="submit">
+            <img src="img/upvote.gif" alt="upvote_image" />
+          </button>
+        </form>
+      </div>
+      <div class="vote-on">
+        <form action="/badges/{{ id }}" method='POST'>
+          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="slogan_id" value="{{ id }}">
+          <input type="hidden" name="vote_type" value="down">
+          <button class="down" type="submit" name="submit">
+              <img src="img/downvote.gif" alt="downvote_image" />
+          </button>
+        </form>
+      </div>
+
+      <div class="points">
+        {{ votes }}
+      </div>
+    </div>
+  </script>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
