@@ -15,7 +15,30 @@ var getAllTeachers = function() {
 
   request.done(function(res) {
     res.forEach(function(teacher) {
-      $('#teachers').append(`<li><a href="http://sample-badges-api.herokuapp.com/teachers/${teacher.id}">${teacher.name}</a></li>`)
+      $('#teachers').append(`<li><a class='teachername' href="http://sample-badges-api.herokuapp.com/teachers/${teacher.id}">${teacher.name}</a></li>`)
     });
   });
+};
+
+var getTeacherBadges = function() {
+  $('.container').on('click', 'a', 'href', function(e) {
+    e.preventDefault();
+
+    var that = this;
+    var address = $(that).attr('href')
+
+    var request = $.ajax({
+      dataType: 'json',
+      url: address,
+      method: 'get'
+    });
+
+    request.done(function(res){
+      console.log(res)
+    })
+
+  });
+
+
+
 };
