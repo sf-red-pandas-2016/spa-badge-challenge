@@ -1,0 +1,27 @@
+<div id="JSON: <% 1 %>" class="slogan">
+  <div class="body">JSON:<% 1) DBC Guru %></div>
+  <div class="vote-on">
+    <form action="/badges/<% :id %>" method='POST'>
+      <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="slogan_id" value=<% 1 %>>
+      <input type="hidden" name="vote_type" value="up">
+      <button class="up" type="submit" name="submit">
+        <img src="img/upvote.gif" alt="upvote_image" />
+      </button>
+    </form>
+  </div>
+  <div class="vote-on">
+    <form action="/badges/<% :id %>" method='POST'>
+      <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="slogan_id" value=<% 1 %>>
+      <input type="hidden" name="vote_type" value="down">
+      <button class="down" type="submit" name="submit">
+          <img src="img/downvote.gif" alt="downvote_image" />
+      </button>
+    </form>
+  </div>
+
+  <div class="points">
+    JSON: (25 points)
+  </div>
+</div>
