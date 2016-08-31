@@ -1,5 +1,5 @@
 class Teacher < ActiveRecord::Base
-	has_many :slogans
+	has_many :badges
 
 	
 end
